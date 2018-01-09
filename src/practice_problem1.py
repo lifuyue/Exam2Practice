@@ -109,6 +109,8 @@ class Box(object):
         self.contents0 = self.contents
         self.volume = volume
         self.volume0 = volume
+        self.reset_time = 0
+        self.contents_before_reset = self.contents
 
     def append_string(self, additional_contents):
         """
@@ -355,6 +357,8 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+        self.reset_time += 1
+        self.contents_before_reset = self.contents
         self.contents = self.contents0
         self.volume = self.volume0
 
@@ -429,6 +433,10 @@ class Box(object):
         #    DIFFICULTY:      6
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+        if self.reset_time == 0:
+            return []
+        elif self.reset_time + 1:
+            return [self.contents_before_reset]
 
     def combined_box(self, other_box):
         """

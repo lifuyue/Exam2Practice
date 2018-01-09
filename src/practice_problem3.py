@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Li Fuyue.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -32,11 +32,11 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_practice_problem3a()
+    # run_test_practice_problem3a()
     run_test_practice_problem3b()
-    run_test_practice_problem3c()
-    run_test_practice_problem3d()
-    run_test_practice_problem3e()
+    # run_test_practice_problem3c()
+    # run_test_practice_problem3d()
+    # run_test_practice_problem3e()
 
 
 def is_prime(n):
@@ -64,7 +64,7 @@ def is_prime(n):
     return True
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch the above  is_prime  function - it has no TODO.
+    #   Do NOT touch the above  is_prime  function - it has no TO DO.
     #   Do NOT copy code from this function.
     #
     # Instead, ** CALL ** this function as needed in the problems below.
@@ -156,13 +156,20 @@ def practice_problem3a(circles):
       :type sequence: [rg.Circle]
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+    if len(circles) == 0:
+        return 1
+    else:
+        total = 1
+        for k in range(len(circles)):
+            total = total * circles[k].center.x
+        return total
 
 
 def run_test_practice_problem3b():
@@ -278,6 +285,11 @@ def practice_problem3b(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    for k in range(0, len(sequence) - 1):
+        if sequence[k] == sequence[-1]:
+            return True
+        else:
+            return False
 
 
 def run_test_practice_problem3c():

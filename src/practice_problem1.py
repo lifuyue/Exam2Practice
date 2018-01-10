@@ -39,15 +39,15 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-    # run_test_init()
-    # run_test_append_string()
-    # run_test_double()
-#     run_test_shrink()
-#     run_test_double_then_shrink()
-#     run_test_reset()
-#     run_test_steal()
+    run_test_init()
+    run_test_append_string()
+    run_test_double()
+    run_test_shrink()
+    run_test_double_then_shrink()
+    run_test_reset()
+    run_test_steal()
     run_test_get_history()
-#     run_test_combined_box()
+    run_test_combined_box()
 
 
 ########################################################################
@@ -109,8 +109,7 @@ class Box(object):
         self.contents0 = self.contents
         self.volume = volume
         self.volume0 = volume
-        self.reset_time = 0
-        self.contents_before_reset = self.contents
+        self.reset_sequence = []
 
     def append_string(self, additional_contents):
         """
@@ -357,8 +356,7 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
-        self.reset_time += 1
-        self.contents_before_reset = self.contents
+        self.reset_sequence += [self.contents]
         self.contents = self.contents0
         self.volume = self.volume0
 
@@ -425,7 +423,7 @@ class Box(object):
           #   h is now ['GoodGo', 'GoodBye']
         """
         # --------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # DONE: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -433,10 +431,7 @@ class Box(object):
         #    DIFFICULTY:      6
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
-        if self.reset_time == 0:
-            return []
-        elif self.reset_time + 1:
-            return [self.contents_before_reset]
+        return self.reset_sequence
 
     def combined_box(self, other_box):
         """
@@ -468,6 +463,8 @@ class Box(object):
 ########################################################################
 # The TEST functions for the  Box  class begin here.
 ########################################################################
+
+
 def run_test_init():
     """ Tests the   __init__   method of the Box class. """
     print()

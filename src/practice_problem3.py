@@ -33,10 +33,10 @@ import rosegraphics as rg
 def main():
     """ Calls the   TEST   functions in this module. """
     # run_test_practice_problem3a()
-    run_test_practice_problem3b()
+    # run_test_practice_problem3b()
     # run_test_practice_problem3c()
     # run_test_practice_problem3d()
-    # run_test_practice_problem3e()
+    run_test_practice_problem3e()
 
 
 def is_prime(n):
@@ -366,13 +366,18 @@ def practice_problem3c(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    seq = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            seq = seq + [k]
+    return seq
 
 
 def run_test_practice_problem3d():
@@ -455,6 +460,11 @@ def practice_problem3d(sequence):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
+    # for k in range(len(sequence)):
+    #     if sequence[k] == 0:
+    #         return k
+    #     else:
+    #         return -1
 
 
     ####################################################################
@@ -472,6 +482,7 @@ def practice_problem3d(sequence):
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
+    return practice_problem3c(sequence)[0]
 
 
 def run_test_practice_problem3e():
@@ -534,13 +545,18 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   8 minutes.
     ####################################################################
+    total = 0
+    for k in range(len(sequence)):
+        if k % 2 == 0:
+            total = total + sequence[k]
+    return total
 
 
 # ----------------------------------------------------------------------
